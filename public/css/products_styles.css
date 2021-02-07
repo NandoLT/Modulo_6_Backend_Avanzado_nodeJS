@@ -71,3 +71,15 @@ button.cls_tagInput{
 .page-tags{
     margin-bottom: 10px
 }
+
+/**
+* 404
+**/
+.not-found a{
+    text-decoration: none;
+    color: white;
+}
+
+.not-found h3{
+    text-align: center;
+}
