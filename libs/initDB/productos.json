@@ -1,0 +1,72 @@
+[
+    {
+        "name":"Fire TV Stick",
+        "sale":"true",
+        "price":"29.99",
+        "image":"fire_tv_stick.jpg",
+        "tags":["home","streaming", "geek"]
+    },
+    {
+        "name":"Xiaomi Band 5",
+        "sale":"true",
+        "price":"29.78",
+        "image":"xiaomi_band_5.jpg",
+        "tags":["fitness", "lifestyle", "salud"]
+    },
+    {
+        "name":"Huawei Watch GT 2",
+        "sale":"true",
+        "price":"139.00",
+        "image":"huawei_gt2.jpg",
+        "tags":["lifestyle", "geek", "salud"]
+    },
+    {
+        "name":"Mars Gaming MS1",
+        "sale":"false",
+        "price":"67",
+        "image":"mars_gaming_ms1.jpg",
+        "tags":["music", "gaming", "minimal"]
+    },
+    {
+        "name":"Samsung Crystal UHD",
+        "sale":"true",
+        "price":"369.99",
+        "image":"samsung_crystal_uhd.jpg",
+        "tags":["4K", "HDR", "Smart TV"]
+    },
+    {
+        "name":"Fire TV Stick",
+        "sale":"true",
+        "price":"29.99",
+        "image":"fire_tv_stick.jpg",
+        "tags":["home","streaming", "geek"]
+    },
+    {
+        "name":"Xiaomi Band 5",
+        "sale":"true",
+        "price":"29.78",
+        "image":"xiaomi_band_5.jpg",
+        "tags":["fitness", "lifestyle", "salud"]
+    },
+    {
+        "name":"Huawei Watch GT 2",
+        "sale":"true",
+        "price":"139.00",
+        "image":"huawei_gt2.jpg",
+        "tags":["lifestyle", "geek", "salud"]
+    },
+    {
+        "name":"Mars Gaming MS1",
+        "sale":"false",
+        "price":"67",
+        "image":"mars_gaming_ms1.jpg",
+        "tags":["music", "gaming", "minimal"]
+    },
+    {
+        "name":"Samsung Crystal UHD",
+        "sale":"true",
+        "price":"369.99",
+        "image":"samsung_crystal_uhd.jpg",
+        "tags":["4K", "HDR", "Smart TV"]
+    }
+]

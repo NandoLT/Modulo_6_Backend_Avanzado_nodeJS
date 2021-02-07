@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "1e9d3da4-e182-499c-bdcc-a33e9b6f5d96",
+		"name": "NODEPOP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "MSI Portatil",
+							"type": "text"
+						},
+						{
+							"key": "price ",
+							"value": "1.300",
+							"type": "text"
+						},
+						{
+							"key": "sale",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "laptop.jpg",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "gaming",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products?name=MSI Portátil&sale=true&price=1.300&image=msi_laptop.jpg&tags=gaming&tags=slim",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "MSI Portátil"
+						},
+						{
+							"key": "sale",
+							"value": "true"
+						},
+						{
+							"key": "price",
+							"value": "1.300"
+						},
+						{
+							"key": "image",
+							"value": "msi_laptop.jpg"
+						},
+						{
+							"key": "tags",
+							"value": "gaming"
+						},
+						{
+							"key": "tags",
+							"value": "slim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET request Filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?price=50-200&tags=geek&type=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "50-200"
+						},
+						{
+							"key": "tags",
+							"value": "geek"
+						},
+						{
+							"key": "type",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tags Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
