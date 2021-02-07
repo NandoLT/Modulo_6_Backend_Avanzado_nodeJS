@@ -20,7 +20,7 @@ module.exports = {
             const products = await Products.list(filter, limit, start, fields, sort)
             products.length === 0 ? res.status(404).json({result: "Empty  result"}) : res.status(200).json(products)
         } catch (error) {
-            res.json(error)
+            next()
         }
     },
     tagsList: async ( req, res, next) => {
@@ -28,7 +28,7 @@ module.exports = {
             const tagList = await Products.tagsQuery()
             res.status(200).json(tagList) 
         } catch (error) {
-            res.json(error)
+            next()
         }
     },
     createProduct: async (req, res, next) => {
@@ -38,7 +38,7 @@ module.exports = {
             const product = await newProduct.save()
             res.status(201).json(product)  
         } catch (error) {
-            res.json(error)
+            next()
         }
     }
 }
