@@ -4,12 +4,15 @@
   "description": "API que se ejecutará en el servidor de un servicio de venta de artículos de segunda mano.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env MODE_ENV=development nodemon ./src/app.js"
+    "dev": "cross-env MODE_ENV=development nodemon ./app.js",
+    "initdb": "node ./libs/initDB/initdb.js"
   },
   "author": "Fernando López Trejo",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cross-env": "^7.0.3",
