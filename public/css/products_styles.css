@@ -1,3 +1,17 @@
+.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+html, body {
+    height: 100%;
+}
+/**
+* Footer
+*/
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
 /**
 * index page
 */
@@ -43,7 +57,7 @@
 /**
 * update_item page
 **/
-.grid-container {
+.container.grid-container {
     display: grid;
     grid-template-columns: 33% 66%;
     padding: 10px;

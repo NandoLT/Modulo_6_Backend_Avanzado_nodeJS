@@ -44,3 +44,12 @@ localhost:3000/api/products
 localhost:3000/api/products/tags
 - Proporciona  una llamada GET que muestra todos los tags alamacenados en la Base de datos.
     ==> Referencia de prubas POSTMAN (./documentation/NODEPOP.api_methods.json).
+
+
+# Ampliación Backend Avanzado
+
+## Autenticación
+## Internacionalización
+## Subida de imágenes
+## Testing
+## BONUS TRACK (creación de módulo libre)

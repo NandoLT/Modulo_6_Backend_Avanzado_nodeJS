@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+require('dotenv').config();
+
 const path = require('path')
 
 const express = require('express')
@@ -8,6 +12,7 @@ const app = express()
 
 const apiRoutes = require('./routes/products')
 const indexRoutes = require('./routes/index')
+const cookieParser = require('cookie-parser')
 
 // settings
 app.use(express.urlencoded({ extended: false }));
@@ -22,13 +27,20 @@ require('./libs/db-connection')
 // middelwares
 app.use(logger('dev'))
 app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
 
 // routes
-//---- website - API-----//
-app.use('/', indexRoutes)
 //---- API -----//
 app.use('/api/products', apiRoutes)
+
+
+// Setup de i18n
+const i18n = require('./libs/i18nConfigure')
+app.use(i18n.init);
+
+//---- website - API-----//
+app.use('/', indexRoutes)
 
 // variables globales
 app.locals.title = 'Nodepop'
@@ -60,4 +72,5 @@ app.use(function(err, req, res, next) {
 
 app.listen(app.get('port'), () =>{
     console.log('Server on port ', app.get('port'))
+    console.log('MONGO URL', process.env.MONGODB_URL_CONNECT);
 }) 

@@ -1,0 +1,35 @@
+<div class="container flex-products">
+<% for(let i = 0; i < productos.length; i++) {%>
+    <div class="card">
+        <img src="images/<%= productos[i].image %>"" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><%= productos[i].name %></h5>
+            <p class="card-text">
+                <table class="table table-success table-striped table-hover">
+                    <tr>
+                        <td><strong>Precio</strong></td>
+                        <td><strong>Tipo</strong></td>
+                    </tr>
+                    <tr>
+                        <td><%= productos[i].price %> <%= currency %></td>
+                        <td>
+                            <% if(productos[i].sale === true) { %>
+                                <p>Venta</p>
+                            <% } else { %>
+                                <p>Subasta</p>
+                            <% } %>
+                        </td>
+                    </tr>
+                </table>
+                <h6>
+                    <% for (tag of productos[i].tags ){ %>
+                        <button class="btn btn-info btn-tags"><%= tag %></button>
+                    <% } %>
+                <hr>
+            </p>
+            <a href="/delete/<%= productos[i]._id %>" class="btn btn-danger">Eliminar</a>
+            <a href="/update_item/<%= productos[i]._id %>" class="btn btn-success">Actualizar</a>
+        </div>
+    </div>
+<% } %>
+</div>

@@ -1,18 +1,20 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connection.on('error', err => {
-    console.log('Error de conexión: ', err)
-    process.exit(1)
-})
+    console.log('Error de conexión: ', err);
+    process.exit(1);
+});
+
 mongoose.connection.once('open', () => {
-    console.log('Conectado a MongoDB en ', mongoose.connection.name)
-})
+    console.log('Conectado a MongoDB en ', mongoose.connection.name);
+});
 
-mongoose.connect('mongodb://localhost/nodepop', {
+mongoose.connect(process.env.MONGODB_URL_CONNECT, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
 
-module.exports = mongoose.connection
+module.exports = mongoose.connection;

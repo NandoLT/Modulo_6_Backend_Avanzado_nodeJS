@@ -1,0 +1,30 @@
+<div class="form-filters">
+    <form action="/" method="get" class="form-inline">
+        <div class="row">
+            <div class="col form-group">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre producto">
+            </div>
+            <div class="col form-group">
+                <input  type="number" id="price" name="price" class="form-control-range" min="0" max="1000" step=any placeholder="Precio Mayor que...">
+            </div>
+            <div class="col form-group">
+                <select id="sale" class="form-control" name="sale" placeholder="Seleccione Tipo">
+                    <option value="">Seleccione Tipo</option>
+                    <option value="true">Venta</option>
+                    <option value="false">Subasta</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <button type="button" class="btn btn-secondary">
+                    Seleccione tags (ctrl + click)
+                </button>
+                <select id="tags tags-search" class="form-control tags-search" name="tags" placeholder="Seleccione Tags" multiple>
+                    
+                </select>
+            </div>
+            <div class="col form-group">
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
+    </form>
+</div>
