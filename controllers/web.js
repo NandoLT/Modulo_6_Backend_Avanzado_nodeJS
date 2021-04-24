@@ -92,5 +92,11 @@ module.exports = {
         const updatedProduct = req.body
         await Products.findByIdAndUpdate(id, updatedProduct)
         res.status(201).redirect('/')
+    }, 
+
+    changeLocale: (req, res, next) => {
+        const language = req.params.language
+        res.cookie('nodepop-language', language, {maxAge: 100*60*60*24*20})
+        res.redirect(req.get('referer'))
     }
 }

@@ -7,7 +7,8 @@ const {
     deleteProduct,
     tagsList,
     viewUpdateProduct,
-    updateProduct
+    updateProduct, 
+    changeLocale,
 } = require('../controllers/web')
 
 
@@ -17,6 +18,7 @@ router.post('/update_item/:productId', updateProduct)
 router.get('/tags', tagsList)
 router.get('/delete/:productId', deleteProduct)
 router.get('/update_item/:productId', viewUpdateProduct)
+router.get('/change-locale/:language', changeLocale)
 
 
 module.exports = router

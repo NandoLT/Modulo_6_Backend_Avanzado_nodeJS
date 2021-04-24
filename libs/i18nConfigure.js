@@ -9,7 +9,8 @@ i18n.configure({
     directory: path.join(__dirname, '..', 'locales' ),
     defaultLocale: 'en',
     autoReload: true,
-    syncFiles: true
+    syncFiles: true,
+    cookie: 'nodepop-language'
 });
 
 // Para uso en scripts

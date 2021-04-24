@@ -34,7 +34,6 @@ app.use(cookieParser());
 //---- API -----//
 app.use('/api/products', apiRoutes)
 
-
 // Setup de i18n
 const i18n = require('./libs/i18nConfigure')
 app.use(i18n.init);

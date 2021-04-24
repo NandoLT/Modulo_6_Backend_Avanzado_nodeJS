@@ -3,6 +3,15 @@
 }
 
 /**
+* HEADER
+*/
+.language-select {
+    width: 25%;
+    margin-top: 10px;
+}
+
+
+/**
 * index page
 */
 .flex-products{
