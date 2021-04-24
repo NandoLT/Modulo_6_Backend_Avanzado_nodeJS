@@ -1,17 +1,7 @@
 .navbar-nav.ml-auto {
     margin-left: auto;
 }
-html, body {
-    height: 100%;
-}
-/**
-* Footer
-*/
-footer {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-}
+
 /**
 * index page
 */
@@ -29,8 +19,18 @@ footer {
     padding-right: 5px;
     padding-top: 5px;
 }
-.flex-products > .card:nth-child(5) > img{
-    width:93%
+
+.card-img-top{
+    width: 90%;
+    padding: 20px;
+}
+
+.type_product {
+    margin-left: 10px;
+    border: 1px solid  rgb(128, 128, 128, 0.3);
+    border-radius: 10px;
+    padding: 0px 5px;
+    background-color: rgb(128, 128, 128, 0.3);
 }
 
 .btn-generic{
