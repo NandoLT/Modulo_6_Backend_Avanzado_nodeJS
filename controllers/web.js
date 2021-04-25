@@ -94,6 +94,11 @@ module.exports = {
         res.status(201).redirect('/')
     }, 
 
+    userAcces: (req, res, next) => {
+        console.log('USERACCES')
+        res.render('user-acces')
+    },
+
     changeLocale: (req, res, next) => {
         const language = req.params.language
         res.cookie('nodepop-language', language, {maxAge: 100*60*60*24*20})
