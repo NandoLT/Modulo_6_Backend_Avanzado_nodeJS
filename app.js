@@ -12,6 +12,7 @@ const app = express()
 
 const apiRoutes = require('./routes/products')
 const indexRoutes = require('./routes/index')
+const loginRoutes = require('./routes/login')
 const cookieParser = require('cookie-parser')
 
 // settings
@@ -39,7 +40,10 @@ const i18n = require('./libs/i18nConfigure')
 app.use(i18n.init);
 
 //---- website - API-----//
+console.log('Se rompe en app')
+
 app.use('/', indexRoutes)
+app.use('/user-acces', loginRoutes)
 
 // variables globales
 app.locals.title = 'Nodepop'

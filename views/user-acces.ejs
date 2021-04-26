@@ -31,17 +31,21 @@
 		<div class="white-panel">
 			<div class="login-show">
 				<h2>LOGIN</h2>
-				<input type="text" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<input type="button" value="Login">
-				<a href="">Forgot password?</a>
+				<form method="POST">
+					<input type="text" placeholder="Email" name="email" value="<%= email %>" >
+					<input type="password" placeholder="Password" name="password">
+					<input type="submit" value="Login">
+					<div><%= error %></div>
+				</form>
 			</div>
 			<div class="register-show">
 				<h2>REGISTER</h2>
-				<input type="text" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<input type="password" placeholder="Confirm Password">
-				<input type="button" value="Register">
+				<form method="POST" action="user-acces/create-user">
+					<input type="text" placeholder="Email" name="email">
+					<input type="password" placeholder="Password" name="password">
+					<input type="password" placeholder="Confirm Password">
+					<input type="submit" value="Register">
+				</form>
 			</div>
 		</div>
 	</div>

@@ -3,9 +3,6 @@ const mongoose = require('mongoose')
 const Products = require('../../models/Products')
 const Users = require('../../models/Users')
 const fs = require('fs');
-const { Console } = require('console');
-
-// const { init } = require('../../models/Products');
 
 async function init({dataProducts, dataUsers}) {
     const responseProducts = await initProducts(dataProducts)
