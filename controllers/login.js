@@ -1,6 +1,5 @@
 const User = require('../models/Users')
 
-console.log('Se rompe en controllers')
 
 module.exports = {
     index: (req, res, next) => {
@@ -9,19 +8,31 @@ module.exports = {
         res.render('user-acces')
     },
     
-    loginPost: (req, res, next) => {
-        const {email, password} = req.body
-        res.locals.email = email
-        res.locals.error = 'Invalid Credentials'
-        res.render('user-acces')
+    loginPost: async (req, res, next) => {
+        try {
+            const {email, password} = req.body
+    
+            const userResponse = await User.findOne({email})
+            console.log('USUARIO', userResponse)
+            if(!userResponse) {
+                res.locals.email = email
+                res.locals.error = 'Invalid Credentials'
+                res.render('user-acces')
+            }
+
+            res.locals.email = email
+            res.locals.error = 'Invalid Credentials'
+            res.render('user-acces')
+
+        } catch (error) {
+            next(error)
+        }
     },
     
-    createUser: (req, res, next) => {
-        console.log('HACEMOS REGISTRO DE USUARIO')
-        res.locals.email = ''
-        res.locals.error = ''
-        const {email, password} = req.body
-        console.log(email, password)
-        res.render('user-acces')
+    createUser: async (req, res, next) => {
+            const {email, password} = req.body
+            res.locals.email = ''
+            res.locals.error = ''
+            res.redirect('../user-acces')
     }
 }
