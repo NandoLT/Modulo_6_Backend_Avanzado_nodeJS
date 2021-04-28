@@ -50,6 +50,10 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 2
     }
 }))
+app.use((req, res , next) => {
+    res.locals.session = req.session // hacemos una varialbe global para que guarde la sesión disponible para todas las vistas
+    next()
+})
 //---- website - API-----//
 app.use('/', indexRoutes)
 app.use('/user-acces', loginRoutes)

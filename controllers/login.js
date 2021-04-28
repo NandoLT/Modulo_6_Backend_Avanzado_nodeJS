@@ -31,6 +31,16 @@ module.exports = {
             next(error)
         }
     },
+
+    logout: (req, res, next) => {
+        req.session.regenerate(err => {
+            if(err) {
+                next(err)
+                return
+            }
+            res.redirect('../user-acces')
+        })
+    },
     
     createUser: async (req, res, next) => {
             const {email, password} = req.body
