@@ -33,7 +33,7 @@ module.exports = {
     },
 
     logout: (req, res, next) => {
-        req.session.regenerate(err => {
+        req.session.regenerate(err => { // también se puede user destroy que elimina la sesión por completo.
             if(err) {
                 next(err)
                 return

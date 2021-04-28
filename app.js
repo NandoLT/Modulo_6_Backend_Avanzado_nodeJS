@@ -8,10 +8,12 @@ const express = require('express')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 
 const app = express()
 
 const apiRoutes = require('./routes/products')
+const apiLogin = require('./routes/loginApi')
 const indexRoutes = require('./routes/index')
 const loginRoutes = require('./routes/login')
 const cookieParser = require('cookie-parser')
@@ -34,6 +36,7 @@ app.use(cookieParser());
 
 // routes
 //---- API -----//
+app.use('/api/login', apiLogin)
 app.use('/api/products', apiRoutes)
 
 // Setup de i18n
@@ -48,7 +51,8 @@ app.use(session({
     cookie: {
         secure: process.env.NODE_ENV !== 'development', 
         maxAge: 1000 * 60 * 60 * 24 * 2
-    }
+    },
+    store: MongoStore.create({mongoUrl: process.env.MONGODB_URL_CONNECT})
 }))
 app.use((req, res , next) => {
     res.locals.session = req.session // hacemos una varialbe global para que guarde la sesión disponible para todas las vistas
