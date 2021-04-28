@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router();
 
-
-console.log('Se rompe en rutas')
 const { 
     index,
     loginPost, 

@@ -13,16 +13,19 @@ module.exports = {
             const {email, password} = req.body
     
             const userResponse = await User.findOne({email})
-            console.log('USUARIO', userResponse)
-            if(!userResponse) {
+            if(!userResponse || !(await userResponse.comparePassword(password))) {
                 res.locals.email = email
                 res.locals.error = 'Invalid Credentials'
                 res.render('user-acces')
+                return
             }
-
-            res.locals.email = email
-            res.locals.error = 'Invalid Credentials'
-            res.render('user-acces')
+            // si eñ usuario existe y la clave coincide
+            // apuntar en la sesión del usuario su _id
+            req.session.userLogged = {
+                _id: userResponse._id
+            }
+            //Redirigir a zona privada
+            res.redirect('/')
 
         } catch (error) {
             next(error)

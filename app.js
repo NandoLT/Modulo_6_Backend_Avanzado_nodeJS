@@ -7,6 +7,7 @@ const path = require('path')
 const express = require('express')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 
 const app = express()
 
@@ -38,10 +39,18 @@ app.use('/api/products', apiRoutes)
 // Setup de i18n
 const i18n = require('./libs/i18nConfigure')
 app.use(i18n.init);
-
+// Gestión de sesiones del website
+app.use(session({
+    name: 'nodepop-session',
+    secret: 'asD)/ASD)={as{ç//zD<*SDFSDf',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        secure: process.env.NODE_ENV !== 'development', 
+        maxAge: 1000 * 60 * 60 * 24 * 2
+    }
+}))
 //---- website - API-----//
-console.log('Se rompe en app')
-
 app.use('/', indexRoutes)
 app.use('/user-acces', loginRoutes)
 
@@ -75,5 +84,4 @@ app.use(function(err, req, res, next) {
 
 app.listen(app.get('port'), () =>{
     console.log('Server on port ', app.get('port'))
-    console.log('MONGO URL', process.env.MONGODB_URL_CONNECT);
 }) 

@@ -31,7 +31,10 @@ module.exports = {
             filter = gF.getFilter(filter, name, price, sale, tags)
 
             const products = await Products.list(filter, limit, start, fields, sort)
-
+            // if(!req.session.userLogged) {
+            //     res.redirect('/user-acces')
+            //     return
+            // }
             products.length === 0 ? res.status(404).render('404') : res.status(200).render('index', {
                 productos: products
             })
