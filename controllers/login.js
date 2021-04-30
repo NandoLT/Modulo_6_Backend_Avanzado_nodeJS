@@ -1,4 +1,6 @@
 const User = require('../models/Users')
+const jwt = require('jsonwebtoken')
+const nodemailer = require('nodemailer')
 
 
 module.exports = {
@@ -19,11 +21,21 @@ module.exports = {
                 res.render('user-acces')
                 return
             }
-            // si eñ usuario existe y la clave coincide
+            // si el usuario existe y la clave coincide
             // apuntar en la sesión del usuario su _id
             req.session.userLogged = {
                 _id: userResponse._id
             }
+
+            // Envío Email al usuario para informar de un nuevo inicio de sesión
+            // try {
+                const info = await userResponse.sendEmail('Nuevo acceso a nodepop', `El usuario ${userResponse.email} ha iniciado una nueva sesión`)
+                console.log("Message sent: %s", info.messageId);
+                console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+            // } catch (error) {
+            //     next(error)
+            // }            
+
             //Redirigir a zona privada
             res.redirect('/')
 
@@ -40,6 +52,13 @@ module.exports = {
             }
             res.redirect('../user-acces')
         })
+    },
+
+    rememberPassword: (req, res, next) => {
+        // TODO remember password
+        //formulario para que indique el correo para la recupeación de contraseña
+        // Se envía una url con los datos en query para indicarle password o cambiarla ya vere
+        res.send('Estoy recuperando password')
     },
     
     createUser: async (req, res, next) => {

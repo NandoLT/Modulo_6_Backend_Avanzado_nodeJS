@@ -4,7 +4,7 @@ const Products = require('../models/Products')
 // const urlTags = 'http://localhost:3000/api/products/tags'
 const gF =  require('../utils/getFilter')
 
-
+//TODO Incluir en las cabeceras de axios wl JWT
 module.exports = {
     index: async(req, res, next)  => {
         /* const query = req.query
@@ -59,6 +59,7 @@ module.exports = {
             next()
         }
     },
+    
     tagsList: async(req, res, next)  => {
         /* const tags = await axios.request({
             url: urlTags
@@ -75,6 +76,7 @@ module.exports = {
             next()
         }
     },
+    
     deleteProduct: async (req, res, next) => {
         const id = req.params.productId
         await Products.findByIdAndDelete(id)

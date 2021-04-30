@@ -2,6 +2,7 @@ const Products = require('../../models/Products')
 const gF =  require('../../utils/getFilter')
 
 module.exports = {
+    
     index: async (req, res, next) => {
         try {
             // filter

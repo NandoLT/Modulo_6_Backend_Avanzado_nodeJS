@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router();
 
+const jwtAuth = require('../libs/jwtAuth')
+
 const { 
     index,
     createProduct,
@@ -8,8 +10,8 @@ const {
 } = require('../controllers/api/products')
 
 
-router.get('/', index)
-router.post('/', createProduct)
-router.get('/tags', tagsList)
+router.get('/',     jwtAuth,index)
+router.post('/',    jwtAuth,createProduct)
+router.get('/tags', jwtAuth,tagsList)
 
 module.exports = router
