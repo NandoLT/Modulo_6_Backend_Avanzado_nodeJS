@@ -25,7 +25,7 @@ module.exports = {
                     next(err)
                     return
                 }
-                
+                // res.locals.nodeapiToken = jwtToken
                 res.json({
                     msg: 'Token Created',
                     token: jwtToken,
