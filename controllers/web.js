@@ -3,6 +3,16 @@ const Products = require('../models/Products')
 // const url = 'http://localhost:3000/api/products'
 // const urlTags = 'http://localhost:3000/api/products/tags'
 const gF =  require('../utils/getFilter')
+const path = require('path')
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null,path.join('public/uploads'));
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.originalname);
+    }
+})
 
 //TODO Incluir en las cabeceras de axios wl JWT
 module.exports = {
@@ -50,14 +60,27 @@ module.exports = {
             data: query
         })
         res.status(200).redirect('/') */
-        try {
-            const newProduct = new Products(req.body)
-            console.log('NUEVO PRODUCTO',newProduct)
-            const product = await newProduct.save()
-            res.status(201).redirect('/')  
-        } catch (error) {
-            next()
-        }
+        let upload = multer({storage}).single('image')
+        upload(req, res, async function(err){
+            if (err instanceof multer.MulterError) {
+                return res.status(400).json({message: err})
+            } else if (err) {
+                return res.status(400).json({message: err})
+            }
+            const pathThumpbail = `${req.protocol}://${req.get('host')}/${req.file.path.replace('\\', '/').replace('\\', '/')}`
+            const pathWeb = `${req.file.path.replace('public', '').replace('\\', '/').replace('\\', '/')}`
+
+            try {
+                const newProduct = new Products(req.body)
+                newProduct.image = pathWeb
+                console.log('NUEVO PRODUCTO',newProduct)
+
+                await newProduct.save()
+                res.status(201).redirect('/')  
+            } catch (error) {
+                next()
+            }
+        })
     },
     
     tagsList: async(req, res, next)  => {

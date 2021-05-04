@@ -6,9 +6,10 @@ const path = require('path')
 
 const express = require('express')
 const logger = require('morgan')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+
 
 const app = express()
 
@@ -30,9 +31,14 @@ require('./libs/db-connection')
 
 // middelwares
 app.use(logger('dev'))
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended:false}));
+// app.use(bodyParser.json()); 
+// app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json()); 
+app.use(express.urlencoded({
+    extended:true,
+}));
 app.use(cookieParser());
+
 
 // routes
 //---- API -----//
