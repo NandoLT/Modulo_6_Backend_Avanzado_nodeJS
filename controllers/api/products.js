@@ -10,7 +10,10 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 })
+// const cote = require('cote')
+// const thumbnailRequester = require('../../microservices/thumbnailGenerator/thumbnailGeneratorRequester')
 
+// TODO llevar a Utils multer para poder ajecutarse en todos los lugares que fuera necesario sin replicar tanto código
 module.exports = {
     
     index: async (req, res, next) => {
@@ -61,7 +64,6 @@ module.exports = {
     createProduct: async (req, res, next) => {
         let upload = multer({storage}).single('image')
         upload(req, res, async function(err){
-            console.log('DATOS DE IMAGEN', req.file)
             if (err instanceof multer.MulterError) {
                 return res.status(400).json({message: err})
             } else if (err) {
@@ -69,6 +71,28 @@ module.exports = {
             }
             const pathThumpbail = `${req.protocol}://${req.get('host')}/${req.file.path.replace('\\', '/').replace('\\', '/')}`
             const pathWeb = `${req.file.path.replace('public', '').replace('\\', '/').replace('\\', '/')}`
+            // await thumbnailRequester(pathThumpbail)
+
+            // Movemos temporalmente para pruebas el requester
+
+            // const requester = new cote.Requester({
+            //     name: 'Thumbnail Generator Requester'
+            // })
+
+            // const request = {
+            //     type: 'process thumbnail',
+            //     imagePath: pathThumpbail
+            // }
+            // console.log('Request configuration', request)
+        
+            // requester.send(request, (res, err) => {
+            //     if (err) { 
+            //         console.log('ERROR REQUESTER', err)
+            //         return
+            //     }
+            //     console.log('RESPUESTA REQUESTER', res)
+            // })
+            // fin del requester
 
             try {
                 const newProduct = new Products(req.body)

@@ -46,6 +46,14 @@
 
     function tagRequest(){
         let tagsList
+        // TODO: Añadir cabecera de autenticación y ue el login de web me genere un jwt tambien como en la api
+
+        //EJEMPLO;
+        // const res = await axios.get('https://httpbin.org/get', {
+        //     headers: {
+        //         'Test-Header': 'test-value'
+        //     }
+        // }); 
 
         axios.get('/api/products/tags')
             .then(response => {
