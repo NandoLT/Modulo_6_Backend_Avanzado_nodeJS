@@ -46,8 +46,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/"><%= __('Home') %></a>
+        <li class="nav-item go-home">
+            <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
         </li>
         <li class="nav-item">
             <a class="btn btn-warning btn-generic" href="/tags"><%= __('See Tags') %></a>
@@ -62,7 +62,7 @@
             <li class="nav-item active">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><%= __('Nuevo Producto') %></button>
             </li>
-            <li class="nav-item">
+            <li class="nav-item logout-button">
                 <a href="user-acces/logout"><i class="fas fa-power-off"></i></a>
             </li>
         <% } %>

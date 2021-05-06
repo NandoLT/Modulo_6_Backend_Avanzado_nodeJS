@@ -1,6 +1,9 @@
 <%- include('header') %>
-<div class="container grid-container">
+<div class="container grid-container update-item-page">
+    
     <div class="container grid-item">
+        <h3><%= __('Update Product') %></h3>
+    <hr style="width: 25%;">
         <div class="card">
             <img src="<%= producto.image%>" class="card-img-top" alt="...">
             <div class="card-body">
@@ -85,7 +88,7 @@
             let newInputBox = document.createElement('div');
             newInputBox.className = "tag" + counterClassAux + " input-group"
             newInputBox.id = "tag" + counterClassAux
-            newInputBox.innerHTML = "<input type='text' id='tags' class='form-control inputTagUpdate' name='tags' placeholder='<%= __('New Tag') %>' required>" + 
+            newInputBox.innerHTML = "<input type='text' id='tags' class='form-control inputTagUpdate' name='tags' placeholder='<%= __('Delete') %>' required>" + 
                                     "<span class='input-group-btn'>" +
                                     "<button onclick='deleteInputTag(" + counterClassAux + ")' type='button' class='close cls_tagInput'>&times;</button>" +
                                     "</span>"
