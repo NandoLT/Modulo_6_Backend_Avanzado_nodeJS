@@ -28,14 +28,10 @@ module.exports = {
             }
 
             // Envío Email al usuario para informar de un nuevo inicio de sesión
-            // try {
                 const info = await userResponse.sendEmail('Nuevo acceso a nodepop', `El usuario ${userResponse.email} ha iniciado una nueva sesión`)
                 console.log("Message sent: %s", info.messageId);
                 console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-            // } catch (error) {
-            //     next(error)
-            // }            
-
+            
             //Redirigir a zona privada
             res.redirect('/')
 
@@ -55,7 +51,7 @@ module.exports = {
     },
 
     rememberPassword: (req, res, next) => {
-        // TODO remember password
+        // TODO:  remember password
         //formulario para que indique el correo para la recupeación de contraseña
         // Se envía una url con los datos en query para indicarle password o cambiarla ya vere
         res.send('Estoy recuperando password')

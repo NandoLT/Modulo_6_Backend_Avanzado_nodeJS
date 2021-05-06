@@ -2,28 +2,28 @@
     <form action="/" method="get" class="form-inline">
         <div class="row">
             <div class="col form-group">
-                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre producto">
+                <input type="text" id="name" name="name" class="form-control" placeholder="<%= __('Product Name') %>">
             </div>
             <div class="col form-group">
-                <input  type="number" id="price" name="price" class="form-control-range" min="0" max="1000" step=any placeholder="Precio Mayor que...">
+                <input  type="number" id="price" name="price" class="form-control-range" min="0" max="1000" step=any placeholder="<%= __('Price higher than...') %>">
             </div>
             <div class="col form-group">
-                <select id="sale" class="form-control" name="sale" placeholder="Seleccione Tipo">
-                    <option value="">Seleccione Tipo</option>
-                    <option value="true">Venta</option>
-                    <option value="false">Subasta</option>
+                <select id="sale" class="form-control" name="sale" placeholder="<%= __('Select Type') %>">
+                    <option value=""><%= __('Select Type') %></option>
+                    <option value="true"><%= __('Sell') %></option>
+                    <option value="false"><%= __('Auction') %></option>
                 </select>
             </div>
             <div class="col form-group">
                 <button type="button" class="btn btn-secondary">
-                    Seleccione tags (ctrl + click)
+                    <%= __('Select Tags (ctrl + click)') %>
                 </button>
-                <select id="tags tags-search" class="form-control tags-search" name="tags" placeholder="Seleccione Tags" multiple>
+                <select id="tags tags-search" class="form-control tags-search" name="tags" placeholder="<%= __('Select Tags') %>" multiple>
                     
                 </select>
             </div>
             <div class="col form-group">
-                <button class="btn btn-primary">Filtrar</button>
+                <button class="btn btn-primary"><%= __('Filter') %></button>
             </div>
         </div>
     </form>

@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     }
 })
 
-//TODO Incluir en las cabeceras de axios wl JWT
+// TODO:  Incluir en las cabeceras de axios el JWT
 module.exports = {
     index: async(req, res, next)  => {
         /* const query = req.query

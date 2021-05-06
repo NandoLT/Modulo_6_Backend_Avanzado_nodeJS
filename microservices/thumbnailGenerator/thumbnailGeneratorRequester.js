@@ -7,17 +7,16 @@ const requester = new cote.Requester({
 })
 
 
-const thumbnailRequester = (imagePath) => {
+const thumbnailRequester = (imageName) => {
     console.log('Entramos en el REQUESTER')
 
     const request = {
         type: 'process thumbnail',
-        imagePath: imagePath
+        imageName: imageName
     }
-    console.log('Request configuration', request)
 
-    requester.send(request, respond => {
-        console.log('RESPUESTA', respond)
+    requester.send(request, (done) => {
+        console.log('RESPOND', done)
     })
 }
 

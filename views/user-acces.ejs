@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title><%= __('User Acces') %></title>
 	<!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,16 +15,14 @@
 <body>
 	<div class="login-reg-panel">
 		<div class="login-info-box">
-			<h2>Have an account?</h2>
-			<p>Lorem ipsum dolor sit amet</p>
+			<h2><%= __('Have an account?') %></h2>
 			<label id="label-register" for="log-reg-show">Login</label>
 			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
 		</div>
 							
 		<div class="register-info-box">
-			<h2>Don't have an account?</h2>
-			<p>Lorem ipsum dolor sit amet</p>
-			<label id="label-login" for="log-login-show">Register</label>
+			<h2><%= __('Dont Have an account?') %></h2>
+			<label id="label-login" for="log-login-show"><%= __('Register') %></label>
 			<input type="radio" name="active-log-panel" id="log-login-show">
 		</div>
 							
@@ -32,19 +30,19 @@
 			<div class="login-show">
 				<h2>LOGIN</h2>
 				<form method="POST">
-					<input type="text" placeholder="Email" name="email" value="<%= email %>" >
-					<input type="password" placeholder="Password" name="password">
+					<input type="text" placeholder="<%= __('Email') %>" name="email" value="<%= email %>" >
+					<input type="password" placeholder="<%= __('Password') %>" name="password">
 					<input type="submit" value="Login">
-					<div><a href="/user-acces/remember-password">Remember Password</a></div>
+					<div><a href="/user-acces/remember-password"><%= __('Remember Password') %></a></div>
 					<div><%= error %></div>
 				</form>
 			</div>
 			<div class="register-show">
-				<h2>REGISTER</h2>
+				<h2><%= __('REGISTRAR') %></h2>
 				<form method="POST" action="user-acces/create-user">
-					<input type="text" placeholder="Email" name="email">
-					<input type="password" placeholder="Password" name="password">
-					<input type="password" placeholder="Confirm Password">
+					<input type="text" placeholder="<%= __('Email') %>" name="email">
+					<input type="password" placeholder="<%= __('Password') %>" name="password">
+					<input type="password" placeholder="<%= __('Confirm Password') %>">
 					<input type="submit" value="Register">
 				</form>
 			</div>

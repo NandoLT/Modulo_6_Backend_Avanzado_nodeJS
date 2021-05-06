@@ -31,10 +31,10 @@
     <div class="language-select">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="languageSelect">Idiomas</label>
+                    <label class="input-group-text" for="languageSelect"><%= __('Languages') %></label>
                 </div>
                 <select class="custom-select" id="languageSelect" onchange="window.open(this.options[this.selectedIndex].value, '_self')">
-                    <option value="" selected>Seleccionar...</option>
+                    <option value="" selected><%= __('Select...') %></option>
                     <% getLocales().forEach(locale => { %>
                         <option value="/change-locale/<%= locale %>"><%= locale %></option>
                     <% }) %>

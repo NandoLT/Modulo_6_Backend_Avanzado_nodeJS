@@ -8,16 +8,16 @@
                 <p class="card-text">
                     <table class="table table-success table-striped table-hover">
                         <tr>
-                            <td><strong>Precio</strong></td>
-                            <td><strong>Tipo</strong></td>
+                            <td><strong><%= __('Price') %></strong></td>
+                            <td><strong><%= __('Type') %></strong></td>
                         </tr>
                         <tr>
                             <td><%= producto.price %> <%= currency %></td>
                             <td>
                                 <% if(producto.sale === true) { %>
-                                    <p>Venta</p>
+                                    <p><%= __('Sell') %></p>
                                 <% } else { %>
-                                    <p>Subasta</p>
+                                    <p><%= __('Auction') %></p>
                                 <% } %>
                             </td>
                         </tr>
@@ -37,21 +37,21 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <input type="text" id="name" class="form-control" name="name" placeholder="Nombre" value="<%= producto.name %>">
+                        <input type="text" id="name" class="form-control" name="name" placeholder="<%= __('Name') %>" value="<%= producto.name %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="text" id="price" class="form-control" name="price" placeholder="Precio" value="<%= producto.price %>">
+                        <input type="text" id="price" class="form-control" name="price" placeholder="<%= __('Price') %>" value="<%= producto.price %>">
                     </div>
                     <div class="col">
-                        <select id="sale" class="form-control" name="sale" placeholder="Seleccione Tipo" readonly>
+                        <select id="sale" class="form-control" name="sale" placeholder="<%= __('Select Type') %>" readonly>
                             <% if(producto.sale == true) { %>
-                                <option value="true" selected>>>Venta</option>
-                                <option value="false">>>Subasta</option>
+                                <option value="true" selected>>><%= __('Sell') %></option>
+                                <option value="false">>><%= __('Auction') %></option>
                                 <% } else { %>
-                                    <option value="true" >>>Venta</option>
-                                    <option value="false" selected>>>Subasta</option>
+                                    <option value="true" >>><%= __('Sell') %></option>
+                                    <option value="false" selected>>><%= __('Auction') %></option>
                                 <% } %>
                         </select>
                     </div>
@@ -60,7 +60,7 @@
             <div class="form-group" id="tags-form">
                 <% for (tag of producto.tags ){ %>
                     <div class="tag<%= counterClass %> input-group" id="tag<%= counterClass %>">
-                        <input type="text" id="tags" class="form-control inputTagUpdate" name="tags" placeholder="Nuevo Tag" value=<%= tag  %>> 
+                        <input type="text" id="tags" class="form-control inputTagUpdate" name="tags" placeholder="<%= __('New Tag') %>" value=<%= tag  %>> 
                         <span class="input-group-btn">
                             <button  onclick="deleteInputTag(<%=counterClass%>)" type="button" class="close cls_tagInput">&times;</button>
                         </span>
@@ -68,9 +68,9 @@
                     </div>
                 <% } %>
             </div>
-            <button type="button" class="btn btn-secondary" onclick='addTag( + "<%= counterClass %>" )'> Añadir Tag</button>
+            <button type="button" class="btn btn-secondary" onclick='addTag( + "<%= counterClass %>" )'> <%= __('Add Tag') %></button>
             <hr>
-            <button class="btn btn-primary">Actualizar Producto</button>
+            <button class="btn btn-primary"><%= __('Update Product') %></button>
         </form>
     </div>
 </div>
@@ -85,7 +85,7 @@
             let newInputBox = document.createElement('div');
             newInputBox.className = "tag" + counterClassAux + " input-group"
             newInputBox.id = "tag" + counterClassAux
-            newInputBox.innerHTML = "<input type='text' id='tags' class='form-control inputTagUpdate' name='tags' placeholder='Nuevo Tag' required>" + 
+            newInputBox.innerHTML = "<input type='text' id='tags' class='form-control inputTagUpdate' name='tags' placeholder='<%= __('New Tag') %>' required>" + 
                                     "<span class='input-group-btn'>" +
                                     "<button onclick='deleteInputTag(" + counterClassAux + ")' type='button' class='close cls_tagInput'>&times;</button>" +
                                     "</span>"

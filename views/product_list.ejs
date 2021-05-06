@@ -4,7 +4,6 @@
         <% for(let i = 0; i < productos.length; i++) {%>
         <div class="col-lg-3 col-md-4 mb-3">
         <div class="card h-100">
-            <!-- <img class="card-img-top" src="images/<%= productos[i].image %>" alt="product_image"> -->
             <img class="card-img-top" src="<%= productos[i].image%>" alt="product_image">
             <div class="card-body">
             <h4 class="card-title">
@@ -28,8 +27,8 @@
             </h6>
             </div>
             <div class="card-footer">
-            <a href="/delete/<%= productos[i]._id %>" class="btn btn-danger">Eliminar</a>
-            <a href="/update_item/<%= productos[i]._id %>" class="btn btn-success">Actualizar</a>
+            <a href="/delete/<%= productos[i]._id %>" class="btn btn-danger"><%= __('Delete') %></a>
+            <a href="/update_item/<%= productos[i]._id %>" class="btn btn-success"><%= __('Update') %></a>
             </div>
         </div>
         </div>

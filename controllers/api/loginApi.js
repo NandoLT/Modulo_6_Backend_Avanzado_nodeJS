@@ -19,13 +19,12 @@ module.exports = {
                 next(error)
                 return
             }
-            //TODO  implementar refresh token para mayor autenticación
+            // TODO:   implementar refresh token para mayor autenticación
             jwt.sign({_id: userResponse._id}, process.env.JWT_SECRET, {expiresIn: '2h'}, async (err, jwtToken) => {
                 if (err) {
                     next(err)
                     return
                 }
-                // res.locals.nodeapiToken = jwtToken
                 res.json({
                     msg: 'Token Created',
                     token: jwtToken,

@@ -10,10 +10,9 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 })
-const cote = require('cote')
-// const thumbnailRequester = require('../../microservices/thumbnailGenerator/thumbnailGeneratorRequester')
+const thumbnailRequester = require('../../microservices/thumbnailGenerator/thumbnailGeneratorRequester')
 
-// TODO llevar a Utils multer para poder ajecutarse en todos los lugares que fuera necesario sin replicar tanto código
+// TODO:  llevar a Utils multer para poder ajecutarse en todos los lugares que fuera necesario sin replicar tanto código
 module.exports = {
     
     index: async (req, res, next) => {
@@ -36,6 +35,7 @@ module.exports = {
             next()
         }
     },
+
     tagsList: async ( req, res, next) => {
         try {
             const tagList = await Products.tagsQuery()
@@ -44,22 +44,6 @@ module.exports = {
             next()
         }
     },
-
-    // upload: async (req, res, next) => {
-    //     let upload = multer({storage}).single('image')
-    //     upload(req, res, function(err){
-    //         if (err instanceof multer.MulterError) {
-    //             return res.status(400).json({message: err})
-    //         } else if (err) {
-    //             return res.status(400).json({message: err})
-    //         }
-
-    //         const path = `${req.protocol}://${req.get('host')}/${req.file.path.replace('\\', '/')}`
-    //         console.log(req.file.path)
-    //         console.log('PATH', path)
-    //         return res.status(200).json({message: 'image upload'})
-    //     })
-    // },
 
     createProduct: async (req, res, next) => {
         let upload = multer({storage}).single('image')
@@ -72,25 +56,9 @@ module.exports = {
             console.log('REQ CON INFO FILE',req.file)
             const pathThumpnail = req.file.originalname
             const pathWeb = `${req.file.path.replace('public', '').replace('\\', '/').replace('\\', '/')}`
-            // await thumbnailRequester(pathThumpbail)
 
-           // Movemos temporalmente para pruebas el requester
-
-            const requester = new cote.Requester({
-                name: 'Thumbnail Generator Requester'
-            })
-
-            const request = {
-                type: 'process thumbnail',
-                imageName: pathThumpnail,
-            }
-            console.log('Request configuration', request)
+            await thumbnailRequester(pathThumpnail)
         
-            requester.send(request, (done) => {
-                console.log('RESPOND', done)
-            })
-            //fin del requester
-
             try {
                 const newProduct = new Products(req.body)
                 newProduct.image = pathWeb

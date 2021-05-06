@@ -1,7 +1,6 @@
 'use strict'
 const mongoose = require('mongoose')
 
-// definimos un esquema 
 const productSchema = mongoose.Schema({
     name: String,
     sale: Boolean,
@@ -24,7 +23,6 @@ productSchema.statics.tagsQuery = function(){
     query.distinct('tags')
     return query.exec()
 }
-// creamos el modelo con el esquema definido
 const Products = mongoose.model('Products', productSchema)
 
 module.exports = Products

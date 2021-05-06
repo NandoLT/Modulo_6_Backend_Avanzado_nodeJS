@@ -13,24 +13,20 @@ const responder = new cote.Responder({
 
 responder.on('process thumbnail', async (req, done) => {
 
-    console.log('REQUEST en microservicio')
+    console.log('Thumbnail generation in progress...')
     const {imageName} = req
 
     // Procesamos con jimp
     try {
         const image =  await jimp.read(`${imagePath}/${imageName}`)
-        // console.log('IMAGE', image)
-        // await image.contain(100, 100)
-        // await image.writeAsync(`${imagePath}/${image.name}_thumbnail${image.getExtension()}`)
-        // console.log(`${imagePath}thumbnail_${imageName}`) 
         await image.contain(100, 100)
-        // console.log('IMAGE CONTAIN', image)
+        await image.background(0xFFFFFFFF)
         await image.write(`${thumbnailPath}thumbnail_${imageName}`)
     } catch (error) {
         console.log('ERROR JIMP', error)
     }
     // fin proceso jimp
 
-    const result = 'respuesta válida'
+    const result = 'Thumbnail Generated'
     await done(result)
 })

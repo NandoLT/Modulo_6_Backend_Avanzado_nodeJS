@@ -10,15 +10,15 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Nombre" required>
+                                <input type="text" id="name" class="form-control" name="name" placeholder="<%= __('Name') %>" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="price" class="form-control" name="price" placeholder="Precio" required>
+                                <input type="text" id="price" class="form-control" name="price" placeholder="<%= __('Price') %>" required>
                             </div>
                             <div class="col">
-                                <select id="sale" class="form-control" name="sale" placeholder="Seleccione Tipo" required>
+                                <select id="sale" class="form-control" name="sale" placeholder="<%= __('Select Type') %>" required>
                                     <option value="not-valid"><%= __('Select Type') %></option>
                                     <option value="true">>><%= __('Sale') %></option>
                                     <option value="false">>><%= __('Auction') %></option>
@@ -32,7 +32,7 @@
                     <div class="form-group" id="tags-form">
                     </div>
                     
-                    <button type="button" class="btn btn-secondary" onclick="addTag()"> Añadir Tag</button>
+                    <button type="button" class="btn btn-secondary" onclick="addTag()"> <%= __('Add Tag') %></button>
                     <hr>
                     <button class="btn btn-primary"><%= __('Create Product') %></button>
                 </form>
