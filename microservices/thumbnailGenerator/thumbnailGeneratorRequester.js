@@ -16,12 +16,8 @@ const thumbnailRequester = (imagePath) => {
     }
     console.log('Request configuration', request)
 
-    requester.send(request, (err, res) => {
-        if (err) { 
-            console.log('ERROR REQUESTER', err)
-            return
-        }
-        console.log('RESPUESTA REQUESTER', res)
+    requester.send(request, respond => {
+        console.log('RESPUESTA', respond)
     })
 }
 

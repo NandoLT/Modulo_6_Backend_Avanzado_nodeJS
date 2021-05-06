@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 })
-// const cote = require('cote')
+const cote = require('cote')
 // const thumbnailRequester = require('../../microservices/thumbnailGenerator/thumbnailGeneratorRequester')
 
 // TODO llevar a Utils multer para poder ajecutarse en todos los lugares que fuera necesario sin replicar tanto código
@@ -69,30 +69,27 @@ module.exports = {
             } else if (err) {
                 return res.status(400).json({message: err})
             }
-            const pathThumpbail = `${req.protocol}://${req.get('host')}/${req.file.path.replace('\\', '/').replace('\\', '/')}`
+            console.log('REQ CON INFO FILE',req.file)
+            const pathThumpnail = req.file.originalname
             const pathWeb = `${req.file.path.replace('public', '').replace('\\', '/').replace('\\', '/')}`
             // await thumbnailRequester(pathThumpbail)
 
-            // Movemos temporalmente para pruebas el requester
+           // Movemos temporalmente para pruebas el requester
 
-            // const requester = new cote.Requester({
-            //     name: 'Thumbnail Generator Requester'
-            // })
+            const requester = new cote.Requester({
+                name: 'Thumbnail Generator Requester'
+            })
 
-            // const request = {
-            //     type: 'process thumbnail',
-            //     imagePath: pathThumpbail
-            // }
-            // console.log('Request configuration', request)
+            const request = {
+                type: 'process thumbnail',
+                imageName: pathThumpnail,
+            }
+            console.log('Request configuration', request)
         
-            // requester.send(request, (res, err) => {
-            //     if (err) { 
-            //         console.log('ERROR REQUESTER', err)
-            //         return
-            //     }
-            //     console.log('RESPUESTA REQUESTER', res)
-            // })
-            // fin del requester
+            requester.send(request, (done) => {
+                console.log('RESPOND', done)
+            })
+            //fin del requester
 
             try {
                 const newProduct = new Products(req.body)

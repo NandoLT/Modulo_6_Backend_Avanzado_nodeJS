@@ -27,6 +27,7 @@
     "express-validator": "^6.9.2",
     "http-errors": "^1.8.0",
     "i18n": "^0.13.2",
+    "jimp": "^0.16.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.14",
     "morgan": "^1.10.0",
