@@ -78,7 +78,9 @@ También se va a implemtar dos tipos de visualizaciones del front en rejilla y l
 thumbnailGeneratorService.js
 thumbnailGeneratorRequester.js
 ```
+Se puede consultar el listado de imágenes thumbnails existentes en http://localhost:3000/api/products/thumbnails
+
 ## Testing
 - Por implementar
 ## BONUS TRACK (creación de módulo libre)
-- Pòr implementar
+- Por implementar

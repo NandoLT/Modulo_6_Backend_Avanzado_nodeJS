@@ -82,15 +82,14 @@ module.exports = {
             if(err) {
                 console.error(err)
             }
-
+            for(const image of files) {
+                console.log(image[0])
+                filesPath.push(`/${directory.replace('public', '')}/${image}`)
+            }
             res.send({
                 status: 'ok',
-                files: files
+                filess:filesPath
             })
         })
-
-        
-
     }
-
 }
