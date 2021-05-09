@@ -4,7 +4,7 @@ module.exports = {
     watch: '.'
   }, {
     script: './microservices/thumbnailGenerator/thumbnailGeneratorService.js',
-    // watch: ['./service-worker']
+    watch: ['./microservices/thumbnailGenerator/']
   }],
 
   deploy : {

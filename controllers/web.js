@@ -13,6 +13,8 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 })
+const thumbnailRequester = require('../microservices/thumbnailGenerator/thumbnailGeneratorRequester')
+
 
 // TODO:  Incluir en las cabeceras de axios el JWT
 module.exports = {
@@ -67,9 +69,11 @@ module.exports = {
             } else if (err) {
                 return res.status(400).json({message: err})
             }
-            const pathThumpbail = `${req.protocol}://${req.get('host')}/${req.file.path.replace('\\', '/').replace('\\', '/')}`
+            const pathThumpnail = req.file.originalname
             const pathWeb = `${req.file.path.replace('public', '').replace('\\', '/').replace('\\', '/')}`
 
+
+            await thumbnailRequester(pathThumpnail)
             try {
                 const newProduct = new Products(req.body)
                 newProduct.image = pathWeb
