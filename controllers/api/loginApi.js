@@ -7,7 +7,6 @@ module.exports = {
     },
 
     login: async (req, res, next) => {
-        console.log('Enviando credenciales')
         try {
             const {email, password} = req.body
 

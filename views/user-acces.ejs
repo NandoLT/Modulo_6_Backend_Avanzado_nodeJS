@@ -33,12 +33,13 @@
 					<input type="text" placeholder="<%= __('Email') %>" name="email" value="<%= email %>" >
 					<input type="password" placeholder="<%= __('Password') %>" name="password">
 					<input type="submit" value="Login">
-					<div><a href="/user-acces/remember-password"><%= __('Remember Password') %></a></div>
+					<div><button type="button" data-toggle="modal" data-target="#exampleModal"><%= __('Remember Password') %></button></div>
 					<div><%= error %></div>
+					<div><%= rememberPasswordSend %></div>
 				</form>
 			</div>
 			<div class="register-show">
-				<h2><%= __('REGISTRAR') %></h2>
+				<h2><%= __('REGISTER') %></h2>
 				<form method="POST" action="user-acces/create-user">
 					<input type="text" placeholder="<%= __('Email') %>" name="email">
 					<input type="password" placeholder="<%= __('Password') %>" name="password">
@@ -48,6 +49,29 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal To remember Password-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"><%= __('Remember Password') %></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form method="POST" action="user-acces/remember-password">
+					<input type="email" name="email" placeholder="<%= __('Email to recover password') %>">
+					<button class="btn btn-primary"><%= __('Send') %></button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- End modal remember password-->
 	<!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

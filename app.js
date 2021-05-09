@@ -39,15 +39,15 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
-
+// Setup de i18n
+const i18n = require('./libs/i18nConfigure')
+app.use(i18n.init);
 // routes
 //---- API -----//
 app.use('/api/login', apiLogin)
 app.use('/api/products', apiRoutes)
 
-// Setup de i18n
-const i18n = require('./libs/i18nConfigure')
-app.use(i18n.init);
+
 // Gestión de sesiones del website
 app.use(session({
     name: 'nodepop-session',

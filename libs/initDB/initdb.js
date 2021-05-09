@@ -42,7 +42,7 @@ async function encryptUSerPasswords(dataUsers){
 async function  dropChargeBd(dataProducts, dataUsers){
     
     const usersEncrypt = await encryptUSerPasswords(dataUsers)
-    //TODO No consigo corregir el desfase temporarl en la ejecución. Por eso utilizo un setTimeout
+    // TODO:  No consigo corregir el desfase temporarl en la ejecución. Por eso utilizo un setTimeout
     setTimeout(async () => {
         try {
             //Products
