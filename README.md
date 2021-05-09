@@ -54,7 +54,8 @@ localhost:3000/api/products/tags
 
 
 # Ampliación Backend Avanzado
-
+TODO => Tras la ampliación de la app, algunos aspectos del front original hay que ajustarlos como es el caso de la petición por axios al backend para solicitar todos los tags.<br>
+También se va a implemtar dos tipos de visualizaciones del front en rejilla y lista. Par mostrar las imágenes en formato extendido en un caso y usando los thmbnails generados en el otro. )observar iconos  insertados para tal fin, a falta de darles funcionalidad).
 ## Autenticación
 - Autenticación en API:<br>
     Impelementación de autenticación don JWT para los middlewares de la API.<br>

@@ -1,4 +1,6 @@
 const Products = require('../../models/Products')
+const fs = require('fs')
+// import { readdir } from 'fs/promises';
 const gF =  require('../../utils/getFilter')
 const path = require('path')
 const multer = require('multer')
@@ -70,5 +72,25 @@ module.exports = {
                 next()
             }
         })
+    }, 
+
+    thumbnailsList: async (req, res, next) => {
+        const directory = path.join('public/uploads/thumbnails')
+        let filesPath = []
+
+        fs.readdir(directory, async (err, files) =>{
+            if(err) {
+                console.error(err)
+            }
+
+            res.send({
+                status: 'ok',
+                files: files
+            })
+        })
+
+        
+
     }
+
 }
