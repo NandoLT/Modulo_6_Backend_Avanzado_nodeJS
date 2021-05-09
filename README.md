@@ -83,4 +83,4 @@ Se puede consultar el listado de imágenes thumbnails existentes en http://local
 ## Testing
 - Por implementar
 ## BONUS TRACK (creación de módulo libre)
-- Por implementar
+https://www.npmjs.com/package/batch_image_processor
