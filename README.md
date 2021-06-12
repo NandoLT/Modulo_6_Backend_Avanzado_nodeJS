@@ -87,4 +87,8 @@ https://www.npmjs.com/package/batch_image_processor
 
 # URL Despliegue en servidores
 ## Despligue Node + Mongo: http://ec2-35-174-54-33.compute-1.amazonaws.com/
+```bash
+    "email":"user@example.com",
+    "password":"1234"
+ ```
 ## Despliegue React: http://35.174.54.33/
