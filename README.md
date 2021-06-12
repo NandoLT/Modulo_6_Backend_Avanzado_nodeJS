@@ -84,3 +84,7 @@ Se puede consultar el listado de imágenes thumbnails existentes en http://local
 - Por implementar
 ## BONUS TRACK (creación de módulo libre)
 https://www.npmjs.com/package/batch_image_processor
+
+# URL Despliegue en servidores
+## Despligue Node + Mongo: http://ec2-35-174-54-33.compute-1.amazonaws.com/
+## Despliegue React: http://35.174.54.33/
