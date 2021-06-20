@@ -92,3 +92,7 @@ https://www.npmjs.com/package/batch_image_processor
     "password":"1234"
  ```
 ## Despliegue React: http://35.174.54.33/
+```bash
+    "email":"fernando@nodepop.com",
+    "password":"1234"
+ ```
